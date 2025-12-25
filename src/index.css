@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #fff;
+  background: #0a0a0f;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Fixed Background */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: url('/city-background.jpg') center/cover no-repeat;
+  filter: brightness(0.80);
+  transform: scale(1.05);
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, 
+    rgba(10, 10, 15, 0.5) 0%, 
+    rgba(10, 10, 15, 0.7) 50%,
+    rgba(10, 10, 15, 0.9) 100%
+  );
+}
+
+/* Gradient Text Utility */
+.gradient-text {
+  background: linear-gradient(135deg, #f472b6 0%, #a78bfa 50%, #60a5fa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

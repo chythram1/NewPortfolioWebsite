@@ -1,19 +1,22 @@
+import React from 'react';
+import './projectssection.css';
+
 const projects = [
   {
     id: 1,
     title: "Frank Ocean Song Recommender",
     description: "Uses sentiment analysis to recommend a song based on your inputted mood",
     image: "/projects/project1.png",
-    tags: ["Python", "JavaScript", "TextBlob", "CSS", "HTML"],
+    tags: ["Python", "JavaScript", "TextBlob"],
     githubUrl: "https://github.com/chythram1/FrankOceanSongRecommender",
     demoUrl: "https://frank-ocean-song-recommender.vercel.app/",
   },
   {
     id: 2,
-    title: "Finance News Intelligence System",
-    description: "End-to-end system that ingests finance news, performs sentiment analysis, and makes financial predictions",
+    title: "Finance News Intelligence",
+    description: "End-to-end system for finance news sentiment analysis and market predictions",
     image: "/projects/project2.png",
-    tags: ["Python", "Next.js", "LangChain", "FastAPI", "TypeScript", "PostgreSQL"],
+    tags: ["Python", "Next.js", "LangChain", "FastAPI"],
     githubUrl: null,
     demoUrl: null,
     comingSoon: true,
@@ -21,9 +24,9 @@ const projects = [
   {
     id: 3,
     title: "TempoLearn",
-    description: "AI-powered study assistant that transforms lecture notes into summaries, flashcards, and calendar events",
+    description: "AI-powered study assistant that transforms lecture notes into summaries and flashcards",
     image: "/projects/project3.png",
-    tags: ["Next.js", "TypeScript", "FastAPI", "LangChain", "PostgreSQL", "OpenAI"],
+    tags: ["Next.js", "FastAPI", "LangChain", "OpenAI"],
     githubUrl: "https://github.com/chythram1/TempoLearn",
     demoUrl: "https://tempolearn.vercel.app/demo",
   }
@@ -31,88 +34,48 @@ const projects = [
 
 export const ProjectsSection = () => {
   return (
-    <section id="projects" className="py-24 px-4">
-      <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-          Featured <span className="text-[#00FFC6]">Projects</span>
-        </h2>
-        
-        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Here are some projects I've built!
-        </p>
+    <section className="projects-section" id="projects">
+      <div className="section-header">
+        <h2 className="section-title">Featured <span className="gradient-text">Projects</span></h2>
+        <p className="section-subtitle">A selection of things I've built</p>
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
-            <div
-              key={project.id}
-              className="group bg-card rounded-lg overflow-hidden shadow-xs relative"
-            >
-              {/* Coming Soon Badge */}
-              {project.comingSoon && (
-                <div className="absolute top-3 right-3 z-10 px-3 py-1 bg-yellow-500 text-black text-xs font-bold rounded-full">
-                  Coming Soon
-                </div>
-              )}
-
-              <div className={`h-48 overflow-hidden ${project.comingSoon ? 'opacity-60' : ''}`}>
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
+      <div className="projects-grid">
+        {projects.map((project) => (
+          <div key={project.id} className="project-card">
+            <div className={`project-thumb ${project.comingSoon ? 'dimmed' : ''}`}>
+              {project.comingSoon && <span className="badge">Coming Soon</span>}
+              <img src={project.image} alt={project.title} />
+            </div>
+            <div className="project-body">
+              <div className="project-tags">
+                {project.tags.map((tag, index) => (
+                  <span key={index} className="tag">{tag}</span>
+                ))}
               </div>
-
-              <div className="p-6">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag, index) => (
-                    <span 
-                      key={index}
-                      className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <h3 className="text-xl font-semibold mb-1">{project.title}</h3>
-                <p className="text-muted-foreground text-sm mb-4">
-                  {project.description}
-                </p>
-
-                <div className="flex space-x-3">
-                  {project.comingSoon ? (
-                    <span className="px-4 py-2 text-sm text-muted-foreground italic">
-                      🚧 In Development
-                    </span>
-                  ) : (
-                    <>
-                      {project.githubUrl && (
-                        <a
-                          href={project.githubUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="px-4 py-2 text-sm border rounded hover:bg-secondary"
-                        >
-                          GitHub
-                        </a>
-                      )}
-                      {project.demoUrl && (
-                        <a
-                          href={project.demoUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="px-4 py-2 text-sm bg-[#00FFC6] text-black rounded hover:opacity-80"
-                        >
-                          Live Demo
-                        </a>
-                      )}
-                    </>
-                  )}
-                </div>
+              <h3>{project.title}</h3>
+              <p>{project.description}</p>
+              <div className="project-links">
+                {project.comingSoon ? (
+                  <span className="in-progress">🚧 In development</span>
+                ) : (
+                  <>
+                    {project.demoUrl && (
+                      <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="project-link primary">
+                        Demo
+                      </a>
+                    )}
+                    {project.githubUrl && (
+                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="project-link ghost">
+                        GitHub
+                      </a>
+                    )}
+                  </>
+                )}
               </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </section>
   );

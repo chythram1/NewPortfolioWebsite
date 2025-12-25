@@ -1,0 +1,65 @@
+.contact-section {
+  padding: 5rem 3rem;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.contact-section .section-header {
+  margin-bottom: 2rem;
+}
+
+.contact-section .section-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.contact-section .section-subtitle {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.contact-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.contact-section .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #f472b6 0%, #a78bfa 50%, #60a5fa 100%);
+  color: #fff;
+  transition: all 0.2s;
+}
+
+.contact-section .btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.contact-section .btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.2s;
+}
+
+.contact-section .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
