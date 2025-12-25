@@ -37,7 +37,6 @@ export const ProjectsSection = () => {
     <section className="projects-section" id="projects">
       <div className="section-header">
         <h2 className="section-title">Featured <span className="gradient-text">Projects</span></h2>
-        <p className="section-subtitle">A selection of things I've built</p>
       </div>
 
       <div className="projects-grid">

@@ -13,7 +13,7 @@ const experiences = [
     id: 2,
     title: "IT Intern at Indivior",
     description: "Developed Power BI dashboard for various business teams, refined knowledge base libraries, and solved over 30 support tickets in ServiceNow. Got converted to a contractor in the school year to continue work!",
-    image: "/projects/experience2.gif",
+    image: "/projects/experience2.jpg",
     tags: ["Power BI", "ServiceNow", "Azure AD", "Adobe Premiere Pro", "Excel"],
   },
   {
@@ -30,8 +30,7 @@ export const ExperienceSection = () => {
   return (
     <section className="experience-section" id="experience">
       <div className="section-header">
-        <h2 className="section-title">My <span className="gradient-text">Experience</span></h2>
-        <p className="section-subtitle">Recent internship and research experiences</p>
+        <h2 className="section-title">My <span className="gradient-text">Highlighted Experiences</span></h2>
       </div>
 
       <div className="experience-grid">

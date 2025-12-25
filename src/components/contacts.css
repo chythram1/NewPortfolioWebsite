@@ -1,11 +1,16 @@
 .contact-section {
   padding: 5rem 3rem;
-  text-align: center;
   background: rgba(0, 0, 0, 0.4);
 }
 
+.contact-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
 .contact-section .section-header {
-  margin-bottom: 2rem;
+  text-align: center;
+  margin-bottom: 3rem;
 }
 
 .contact-section .section-title {
@@ -13,22 +18,48 @@
   font-weight: 600;
   letter-spacing: -0.02em;
   margin-bottom: 0.5rem;
+  color: #fff;
 }
 
 .contact-section .section-subtitle {
   color: rgba(255, 255, 255, 0.5);
 }
 
+/* Two-column layout: Contact + Spotify side by side */
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+/* Left side - Contact buttons */
+.contact-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.contact-left h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0.5rem;
+}
+
 .contact-buttons {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   gap: 1rem;
-  flex-wrap: wrap;
+  width: 100%;
+  max-width: 250px;
 }
 
 .contact-section .btn-primary {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   padding: 0.875rem 1.75rem;
   font-size: 0.9rem;
@@ -42,12 +73,13 @@
 
 .contact-section .btn-primary:hover {
   opacity: 0.9;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
 .contact-section .btn-secondary {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   padding: 0.875rem 1.75rem;
   font-size: 0.9rem;
@@ -62,4 +94,178 @@
 
 .contact-section .btn-secondary:hover {
   background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+}
+
+/* Right side - Spotify */
+.contact-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.spotify-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #f472b6 0%, #a78bfa 50%, #60a5fa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.spotify-icon {
+  width: 24px;
+  height: 24px;
+  fill: #1DB954;
+}
+
+.spotify-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.0rem;
+  width: 220px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.spotify-card:hover {
+  border-color: rgba(167, 139, 250, 0.5);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(167, 139, 250, 0.15);
+}
+
+.spotify-card:hover .play-overlay {
+  opacity: 1;
+}
+
+.spotify-card:hover .equalizer .bar {
+  animation-play-state: running;
+}
+
+.album-art {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.album-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.play-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.play-overlay svg {
+  width: 40px;
+  height: 40px;
+  color: #a78bfa;
+}
+
+.song-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  text-align: center;
+}
+
+.song-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.song-artist {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Animated Equalizer - Gradient Colors */
+.equalizer {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 24px;
+}
+
+.equalizer .bar {
+  width: 5px;
+  border-radius: 2px;
+  animation: equalize 0.8s ease-in-out infinite;
+  animation-play-state: paused;
+}
+
+.equalizer .bar:nth-child(1) {
+  height: 8px;
+  background: #f472b6;
+  animation-delay: 0s;
+}
+
+.equalizer .bar:nth-child(2) {
+  height: 16px;
+  background: #c084fc;
+  animation-delay: 0.2s;
+}
+
+.equalizer .bar:nth-child(3) {
+  height: 12px;
+  background: #a78bfa;
+  animation-delay: 0.4s;
+}
+
+.equalizer .bar:nth-child(4) {
+  height: 20px;
+  background: #60a5fa;
+  animation-delay: 0.6s;
+}
+
+@keyframes equalize {
+  0%, 100% {
+    height: 8px;
+  }
+  50% {
+    height: 24px;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 3rem 1.5rem;
+  }
+  
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .contact-left {
+    order: 1;
+  }
+  
+  .contact-right {
+    order: 2;
+  }
 }

@@ -43,9 +43,8 @@
   transform: translateY(-3px);
 }
 
-/* Image thumbnail - same as projects */
 .experience-thumb {
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 15 / 10;
   background: linear-gradient(135deg, #1a1a24, #252532);
   display: flex;
   align-items: center;

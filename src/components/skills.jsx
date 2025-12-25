@@ -4,19 +4,19 @@ import './skills.css';
 const skillCategories = [
   {
     category: "Languages",
-    skills: ["Python", "JavaScript", "TypeScript", "C#", "SQL", "HTML/CSS"]
+    skills: ["Python", "Java", "SQL", "JavaScript", "TypeScript", "C#", "HTML/CSS"]
   },
   {
     category: "Frameworks",
-    skills: ["React", "Next.js", "FastAPI", "Angular.js", "LangChain"]
+    skills: ["React", "Next.js", "FastAPI", "Angular.js", "Node.js"]
   },
   {
     category: "Tools & Platforms",
-    skills: ["Git", "Azure", "PostgreSQL", "Power BI", "Databricks", "ServiceNow"]
+    skills: ["Git", "Azure", "Azure Databricks","AWS", "Power BI","ServiceNow", "Azure Data Factory"]
   },
   {
     category: "AI/ML",
-    skills: ["OpenAI API", "Semantic Kernel", "NLP", "Sentiment Analysis", "Data Analysis"]
+    skills: ["OpenAI", "LangChain", "PyTorch", "Prompt Engineering", "Sentiment Analysis", "Data Analysis"]
   }
 ];
 

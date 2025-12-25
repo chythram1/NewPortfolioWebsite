@@ -6,10 +6,11 @@
 .section-header {
   max-width: 1100px;
   margin: 0 auto 2.5rem;
+  text-align: center;
 }
 
 .section-title {
-  font-size: 1.75rem;
+  font-size: 1.75 rem;
   font-weight: 600;
   letter-spacing: -0.02em;
   margin-bottom: 0.5rem;
