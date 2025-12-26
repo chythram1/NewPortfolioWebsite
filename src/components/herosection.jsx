@@ -1,13 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './herosection.css';
 
 export const HeroSection = () => {
+  const [displayText, setDisplayText] = useState('');
+  const [isTyping, setIsTyping] = useState(true);
+  
+  const fullText = "Aspiring Software Engineer | AI/ML Enthusiast | Transdisciplinary Problem Solver";
+
+  useEffect(() => {
+    if (isTyping && displayText.length < fullText.length) {
+      const timeout = setTimeout(() => {
+        setDisplayText(fullText.slice(0, displayText.length + 1));
+      }, 50);
+      return () => clearTimeout(timeout);
+    } else if (displayText.length === fullText.length) {
+      setIsTyping(false);
+    }
+  }, [displayText, isTyping]);
+
   return (
     <section className="hero">
       <div className="hero-container">
         <div className="hero-text">
-          <h1>Hi, I'm <span className="gradient-text">Chythra Malapati</span></h1>
-          <p className="tagline">Aspiring Software & AI Engineer</p>
+          <h1 className="hero-title">
+            Hi, I'm <span className="color-changing">Chythra Malapati</span>
+          </h1>
+          
+          <p className="hero-tagline">
+            {displayText}
+            <span className={`cursor ${!isTyping ? 'blink' : ''}`}>|</span>
+          </p>
           
           <div className="hero-nav">
             <a href="#projects" className="hero-nav-link">
@@ -33,15 +55,10 @@ export const HeroSection = () => {
           <a href="#projects" className="btn-primary">View Work</a>
         </div>
 
-        <div className="profile-wrapper">
-          <div className="profile">
-            <div className="profile-ring">
-              <div className="profile-inner">
-                <div className="profile-img">
-                  {/* Replace with your photo */}
-                  <img src="/projects/coverphoto.png" alt="Your Name" />
-                </div>
-              </div>
+        <div className="hero-image">
+          <div className="profile-ring">
+            <div className="profile-inner">
+              <img src="/projects/Emoji.png" alt="Chythra Malapati" className="profile-img" />
             </div>
           </div>
         </div>

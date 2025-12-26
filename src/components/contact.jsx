@@ -21,8 +21,8 @@ export const ContactSection = () => {
           {/* Left side - Contact buttons */}
           <div className="contact-left">
             <div className="contact-buttons">
-              <a href="mailto:your@email.com" className="btn-primary">Email Me</a>
-              <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className="btn-secondary">LinkedIn</a>
+              <a href="chythram@vt.edu" className="btn-primary">Email Me</a>
+              <a href="https://linkedin.com/in/chythra-malapati" target="_blank" rel="noopener noreferrer" className="btn-secondary">LinkedIn</a>
               <a href="https://github.com/chythram1" target="_blank" rel="noopener noreferrer" className="btn-secondary">GitHub</a>
             </div>
           </div>
