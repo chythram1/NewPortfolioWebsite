@@ -14,28 +14,7 @@ body {
   min-height: 100vh;
 }
 
-/* Fixed Background */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  background: url('/city-background.jpg') center/cover no-repeat;
-  filter: brightness(0.80);
-  transform: scale(1.05);
-}
-
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background: linear-gradient(180deg, 
-    rgba(10, 10, 15, 0.5) 0%, 
-    rgba(10, 10, 15, 0.7) 50%,
-    rgba(10, 10, 15, 0.9) 100%
-  );
-}
+/* REMOVED the body::before and body::after background styles */
 
 /* Gradient Text Utility */
 .gradient-text {
