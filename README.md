@@ -7,7 +7,7 @@ A modern, interactive portfolio website showcasing my work as a Software Enginee
 - **Dynamic Loading Screen** - GridScan animation with gradient color effects and smooth fade transitions
 - **Animated Hero Section** - Elegant fade-in with pink curtain effect and glowing center radial gradient
 - **Pink Lightning Borders** - Interactive button hover effects with animated pink/magenta borders
-- **Scrolling Logo Bar** - Infinite horizontal scroll showcasing affiliations (Virginia Tech, VCU, Indivior, Markel, CoStar Group, Reestablish Richmond)
+- **Scrolling Logo Bar** - Infinite horizontal scroll showcasing affiliations
 - **Gooey Navigation** - Centered navbar with particle animations and smooth active state transitions
 - **ColorBends Background** - Dynamic gradient background with mouse interaction and parallax effects
 - **Smooth Scroll Animations** - Section-by-section reveal animations using ScrollReveal
