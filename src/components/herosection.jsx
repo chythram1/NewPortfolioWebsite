@@ -29,7 +29,7 @@ export const HeroSection = () => {
           </h1>
 
           <p className="hero-subtitle">
-            An Aspiring Software Engineer passionate about AI-driven solutions.
+            Aspiring Software Engineer passionate about AI-driven solutions
           </p>
 
           <div className="hero-buttons">

@@ -2,10 +2,10 @@ import React from 'react';
 import './contacts.css';
 
 const currentSong = {
-  title: "Entropy",
-  artist: "Daniel Caesar",
-  albumArt: "https://lastfm.freetls.fastly.net/i/u/ar0/f4c1af13e288af5f42a9064a23674b4f.jpg",
-  spotifyUrl: "https://open.spotify.com/track/795p3jKj5stjPf8IFpZkdD" // Update with actual link
+  title: "Change",
+  artist: "J. Cole",
+  albumArt: "https://na.cdn.beatsaver.com/5e08bc1130b96b01abb61edcf4df6b3bdf63119a.jpg",
+  spotifyUrl: "https://open.spotify.com/track/3pjUyVbFmM96tYhSaKJwTt" 
 };
 
 export const ContactSection = () => {
