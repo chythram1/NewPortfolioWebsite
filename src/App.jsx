@@ -117,7 +117,7 @@ function App() {
     particleCount={15}
     particleDistances={[90, 10]}
     particleR={100}
-    initialActiveIndex={0}
+    initialActiveIndex={-1}
     animationTime={600}
     timeVariance={300}
     colors={[1, 2, 3, 1, 2, 3, 1, 4]}

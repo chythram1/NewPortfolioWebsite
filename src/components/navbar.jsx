@@ -95,11 +95,19 @@ const Navbar = ({
   };
 
   const handleClick = (e, index) => {
+    e.preventDefault(); // Prevent default anchor behavior
     const liEl = e.currentTarget;
     if (activeIndex === index) return;
 
     setActiveIndex(index);
     updateEffectPosition(liEl);
+
+    // Scroll to the section without changing URL
+    const targetId = items[index].href.replace('#', '');
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
 
     if (filterRef.current) {
       const particles = filterRef.current.querySelectorAll('.particle');
@@ -129,17 +137,62 @@ const Navbar = ({
   };
 
   useEffect(() => {
+    // Remove hash from URL on initial load
+    if (window.location.hash) {
+      window.history.replaceState(null, '', window.location.pathname);
+    }
+
+    // Set up intersection observer to track scroll position
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -60% 0px',
+      threshold: 0
+    };
+
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const sectionId = entry.target.id;
+          const index = items.findIndex(item => item.href === `#${sectionId}`);
+          if (index !== -1 && index !== activeIndex) {
+            setActiveIndex(index);
+          }
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    // Observe all sections
+    items.forEach(item => {
+      const sectionId = item.href.replace('#', '');
+      const section = document.getElementById(sectionId);
+      if (section) {
+        observer.observe(section);
+      }
+    });
+
+    return () => observer.disconnect();
+  }, [items, activeIndex]);
+
+  useEffect(() => {
     if (!navRef.current || !containerRef.current) return;
-    const activeLi = navRef.current.querySelectorAll('li')[activeIndex];
-    if (activeLi) {
-      updateEffectPosition(activeLi);
-      textRef.current?.classList.add('active');
+
+    // Only update effect position if there's an active index
+    if (activeIndex >= 0) {
+      const activeLi = navRef.current.querySelectorAll('li')[activeIndex];
+      if (activeLi) {
+        updateEffectPosition(activeLi);
+        textRef.current?.classList.add('active');
+      }
     }
 
     const resizeObserver = new ResizeObserver(() => {
-      const currentActiveLi = navRef.current?.querySelectorAll('li')[activeIndex];
-      if (currentActiveLi) {
-        updateEffectPosition(currentActiveLi);
+      if (activeIndex >= 0) {
+        const currentActiveLi = navRef.current?.querySelectorAll('li')[activeIndex];
+        if (currentActiveLi) {
+          updateEffectPosition(currentActiveLi);
+        }
       }
     });
 
